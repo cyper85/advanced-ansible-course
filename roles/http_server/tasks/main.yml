@@ -25,14 +25,16 @@
     -
       name: remove .git folder
       command: rm -rf /var/www/html/.git
+      become: yes
     -
       name: change db-host in connection-config
       replace:
         patterns: "{{ item.patterns }}"
         replace: "{{ item.replace }}"
         path: /var/www/html/index.php
+      become: yes
       loop:
-        - patterns: "172.20.1.101"
+        - patterns: "172\.20\.1\.101"
           replacement: "{{ db_host }}"
         - patterns: "ecomuser"
           replacement: "{{ db_user }}"
@@ -46,6 +48,7 @@
         patterns: index.html
         replace: index.php
         path: /etc/httpd/conf/httpd.conf
+      become: yes
     -
       name: open Firewalld for http
       firewalld:
