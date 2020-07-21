@@ -24,6 +24,7 @@ git clone git@github.com:cyper85/advanced-ansible-course.git
 ```
 
 Change the IP-Addresses in `inventory.txt` to the correct ones
+Change the DB-IP-Address in `/vars/http_server.yml`
 
 ```bash
 cd ~/advanced-ansible-course
