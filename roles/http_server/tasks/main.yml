@@ -34,7 +34,7 @@
         path: /var/www/html/index.php
       become: yes
       loop:
-        - patterns: "172\.20\.1\.101"
+        - patterns: "172.20.1.101"
           replacement: "{{ db_host }}"
         - patterns: "ecomuser"
           replacement: "{{ db_user }}"
