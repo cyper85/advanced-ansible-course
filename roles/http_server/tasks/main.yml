@@ -29,7 +29,7 @@
     -
       name: change db-host in connection-config
       replace:
-        patterns: "{{ item.patterns }}"
+        regexp: "{{ item.patterns }}"
         replace: "{{ item.replace }}"
         path: /var/www/html/index.php
       become: yes
