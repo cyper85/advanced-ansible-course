@@ -3,7 +3,7 @@
     -
       name: Install HTTP-Server dependency
       yum:
-        name: [httpd, php, php-mysql]
+        name: [httpd, php, php-mysqlnd]
         state: present
       become: yes
     -
