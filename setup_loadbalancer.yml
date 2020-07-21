@@ -35,3 +35,12 @@
         permanent: yes
         state: enabled
       become: yes
+    -
+      name: open Firewalld for stats
+      firewalld:
+        port: 8080/tcp
+        zone: public
+        immediate: yes
+        permanent: yes
+        state: enabled
+      become: yes
