@@ -11,6 +11,7 @@
       git:
         repo: https://github.com/kodekloudhub/learning-app-ecommerce.git
         dest: /var/www/html/
+        force: yes
       become: yes
     -
       name: init database
