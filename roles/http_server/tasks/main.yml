@@ -14,14 +14,13 @@
     -
       name: init database
       mysql_db:
-        login_host: "{{ item }}"
+        login_host: "{{ db_host }}"
         login_port: "{{ db_port | default(3306) }}"
         login_password: "{{ db_password }}"
         login_user: "{{ db_user }}"
         name: "{{ db_name }}"
         state: import
         target: ~/ecommerce/assets/db-load-script.sql
-      loop: {{ groups['db_server'] }}
     -
       name: remove .git folder
       command: rm -rf ~/ecommerce/app.py
