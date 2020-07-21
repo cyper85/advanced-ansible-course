@@ -9,6 +9,7 @@
     - name: install haproxy firewalld
       yum:
         name: haproxy
+      become: yes
 
     - name: Update HAProxy config
       template:
@@ -22,6 +23,7 @@
         name: haproxy
         state: started
         enabled: yes
+      become: yes
     -
       name: open Firewalld for http
       firewalld:
@@ -41,3 +43,4 @@
         to: Mumshad Mannambeth <mmumshad@gmail.com>
         subject: Ansible-report
         body: 'Go to http://{{ lb_result.external_ip }} to access your web application.'
+      ignore_errors: True
