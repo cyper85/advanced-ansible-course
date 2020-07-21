@@ -1,2 +1,20 @@
 ---
 # tasks file for server_dependencies
+-
+  name: install all required dependencies
+  yum:
+    name: ['epel-release', 'python3', 'python3-pip', 'python3-setuptools', 'platform-python-devel', '@Development tools', 'firewalld']
+    state: installed
+  become: yes
+-
+  name: "install firewalld"
+  yum:
+    name: firewalld
+  become: yes
+-
+  name: "start & enable firewalld"
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+  become: yes
