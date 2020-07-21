@@ -3,7 +3,7 @@
 -
   name: install mysql database
   yum:
-    name: ['mariadb-server', 'python3-mysqlclient']
+    name: ['mariadb-server']
     state: installed
   become: yes
 -
@@ -32,5 +32,6 @@
   firewalld:
     port: "{{ db_port | default(3306) }}/tcp"
     permanent: yes
+    immediate: yes
     state: enabled
   become: yes
