@@ -3,7 +3,7 @@
     -
       name: Install HTTP-Server dependency
       yum:
-        name: [httpd, php, php-mysqlnd]
+        name: [httpd, php, php-mysqlnd, mariadb]
         state: present
       become: yes
     -
