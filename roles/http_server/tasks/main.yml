@@ -6,11 +6,17 @@
         name: [httpd, php, php-mysqlnd, mariadb]
         state: present
       become: yes
+    - name: remove /var/www/html
+      command: rm -rf /var/www/html
+      become: yes
     -
       name: checkout sources
       git:
         repo: https://github.com/kodekloudhub/learning-app-ecommerce.git
         dest: /var/www/html/
+      become: yes
+    - name: remove /var/www/html/.git
+      command: rm -rf /var/www/html/.git
       become: yes
     -
       name: init database
@@ -51,6 +57,7 @@
       firewalld:
         service: http
         zone: public
+        immediate: yes
         permanent: yes
         state: enabled
       become: yes
