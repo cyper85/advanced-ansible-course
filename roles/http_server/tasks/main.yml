@@ -42,7 +42,7 @@
     -
       name: change index-file-extension from html to php
       replace:
-        patterns: index.html
+        regexp: index.html
         replace: index.php
         path: /etc/httpd/conf/httpd.conf
       become: yes
