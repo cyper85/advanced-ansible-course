@@ -22,6 +22,7 @@
         name: "{{ db_name }}"
         state: import
         target: /var/www/html/assets/db-load-script.sql
+      ignore_errors: True
     -
       name: remove .git folder
       command: rm -rf /var/www/html/.git
