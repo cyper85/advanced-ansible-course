@@ -16,13 +16,13 @@
 -
   name: Create Application database
   mysql_db:
-    name: {{ db_name }}
+    name: "{{ db_name }}"
   become: yes
 -
   name: Create MySQL-User
   mysql_user:
-    name: {{ db_user }}
-    password: {{ db_password }}
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
     priv: '*.*:ALL'
     state: present
     host: '%'
@@ -30,7 +30,7 @@
 -
   name: enable mysql-port in firewall
   firewalld:
-    port: {{ mysql_port | default(3306) }}/tcp
+    port: "{{ mysql_port | default(3306) }}/tcp"
     permanent: yes
     state: enabled
   become: yes
