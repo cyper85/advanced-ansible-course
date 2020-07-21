@@ -1,0 +1,13 @@
+---
+- name: Install main dependencies
+  hosts: all
+  roles:
+    - server_dependencies
+- name: Install db-server
+  hosts: db_server
+  roles:
+    - db_server
+- name: Install http-server
+  hosts: http_server
+  roles:
+    - http_server
