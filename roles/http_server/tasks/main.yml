@@ -13,11 +13,14 @@
         state: started
         enabled: yes
       become: yes
+
     - name: allow httpd to access other (mysql-) server in SELinux
       seboolean:
         name: httpd_can_network_connect
         persistent: yes
         state: yes
+      become: yes
+
     - name: remove /var/www/html
       command: rm -rf /var/www/html
       become: yes
