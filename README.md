@@ -42,4 +42,4 @@ I installed the loadbalancer on the ansible-controller-host
 ansible-playbook setup-loadbalancer.yml --extra-vars "ansible_sudo_pass=osboxes.org  --ask-vault-pass"
 ```
 
-At the end, you can call http://{ansible-controller-host-ip}:80 and see on of the http_server.
+At the end, you can call http://{ansible-controller-host-ip}:80 and see on of the http_server. And under http://{ansible-controller-host-ip}:8080 you'll find the haproxy-stats-page. 
