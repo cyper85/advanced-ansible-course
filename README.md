@@ -27,8 +27,10 @@ Change the IP-Addresses in `inventory.txt` to the correct ones
 
 ```bash
 cd ~/advanced-ansible-course
-ansible-playbook install-playbook.yml -i inventory.txt --extra-vars "ansible_sudo_pass=osboxes.org"
+ansible-playbook install-playbook.yml -i inventory.txt --extra-vars "ansible_sudo_pass=osboxes.org" --ask-vault-pass
 ```
+
+vault-password is `osboxes.org`
 
 Server are started on both http-targets.
 
