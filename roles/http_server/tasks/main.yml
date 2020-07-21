@@ -1,2 +1,37 @@
 ---
 # tasks file for http_server
+    -
+      name: Install Python Flask dependency
+      pip:
+        name: [flask, Flask-MySQLdb]
+        state: present
+      become: yes
+    -
+      name: checkout sources
+      git:
+        repo: https://github.com/kodekloudhub/learning-app-ecommerce.git
+        dest: ~/ecommerce
+    -
+      name: init database
+      mysql_db:
+        login_host: "{{ item }}"
+        login_port: "{{ db_port | default(3306) }}"
+        login_password: "{{ db_password }}"
+        login_user: "{{ db_user }}"
+        name: "{{ db_name }}"
+        state: import
+        target: ~/ecommerce/assets/db-load-script.sql
+      loop: {{ groups['db_server'] }}
+    -
+      name: remove .git folder
+      command: rm -rf ~/ecommerce/app.py
+    -
+      name: Start Webserver
+      shell: FLASK_APP=~/ecommerce/app.py nohup flask run --host=0.0.0.0 &
+    -
+      name: open Firewalld
+      firewalld:
+        port: 5000/tcp
+        permanent: yes
+        state: enabled
+      become: yes
