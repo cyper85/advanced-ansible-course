@@ -31,7 +31,7 @@
       name: change db-host in connection-config
       replace:
         regexp: "{{ item.patterns }}"
-        replace: "{{ item.replace }}"
+        replace: "{{ item.replacement }}"
         path: /var/www/html/index.php
       become: yes
       loop:
