@@ -1,2 +1,5 @@
 # Playbook is needed for company setups (proxy, certificates, alternate repositories)
 /system-setup.yml
+
+# Project-Setting-Folder
+.idea
