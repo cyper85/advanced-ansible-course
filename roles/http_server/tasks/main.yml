@@ -6,6 +6,13 @@
         name: [httpd, php, php-mysqlnd, mariadb]
         state: present
       become: yes
+    -
+      name: start httpd server
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      become: yes
     - name: remove /var/www/html
       command: rm -rf /var/www/html
       become: yes
