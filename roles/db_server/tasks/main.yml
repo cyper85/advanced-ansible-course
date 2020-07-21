@@ -30,7 +30,7 @@
 -
   name: enable mysql-port in firewall
   firewalld:
-    port: {{ mysql_port }}/tcp
+    port: {{ mysql_port | default(3306) }}/tcp
     permanent: yes
     state: enabled
   become: yes
