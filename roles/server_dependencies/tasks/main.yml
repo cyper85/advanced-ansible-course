@@ -3,7 +3,7 @@
 -
   name: install all required dependencies
   yum:
-    name: ['epel-release', 'python3', 'python3-pip', 'python3-setuptools', 'platform-python-devel', '@Development tools', 'firewalld']
+    name: ['epel-release', 'python3', 'python3-pip', 'python3-setuptools', 'platform-python-devel', '@Development tools', 'firewalld', 'python3-mysqlclient']
     state: installed
   become: yes
 -
