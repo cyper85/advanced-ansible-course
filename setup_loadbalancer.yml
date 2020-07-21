@@ -5,6 +5,8 @@
     haproxy_backend_servers:
       - {name: target2, ip: 192.168.22.152}
       - {name: target3, ip: 192.168.22.148}
+    haproxy_stats_user: "{{ stats_user }}"
+    haproxy_stats_password: "{{ stats_password }}"
   tasks:
     - name: install haproxy firewalld
       yum:
@@ -33,14 +35,3 @@
         permanent: yes
         state: enabled
       become: yes
-
-    - name: Send notification email
-      mail:
-        host: smtp.gmail.com
-        port: 465
-        username: mmumshad@gmail.com
-        password: "{{ g_password }}"
-        to: Mumshad Mannambeth <mmumshad@gmail.com>
-        subject: Ansible-report
-        body: 'Go to http://{{ lb_result.external_ip }} to access your web application.'
-      ignore_errors: True

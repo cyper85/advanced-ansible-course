@@ -35,4 +35,11 @@ vault-password is `osboxes.org`
 
 Server are started on both http-targets.
 
-_TODO: loadbalancer_
+## Loadbalancer
+I installed the loadbalancer on the ansible-controller-host
+
+```bash
+ansible-playbook setup-loadbalancer.yml --extra-vars "ansible_sudo_pass=osboxes.org"
+```
+
+At the end, you can call http://{ansible-controller-host-ip}:80 and see on of the http_server.
